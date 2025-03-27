@@ -14,7 +14,7 @@ spec:
     spec: # tell the pod how to behave
       containers:
         - name: auth # for logging services
-          image: ahmadajajeh/auth
+          image: ahmadaj/auth
           env:
             - name: JWT_KEY # the name of the env variable
               valueFrom:

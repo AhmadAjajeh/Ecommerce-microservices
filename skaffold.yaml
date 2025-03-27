@@ -7,7 +7,7 @@ build:
   local:
     push: false
   artifacts: # all the things that are gonna be built
-    - image: ahmadajajeh/auth
+    - image: ahmadaj/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -15,7 +15,7 @@ build:
         manual:
           - src: 'src/**/*.ts' # the file that skaffold needs to watch
             dest: . # where to sync this file to
-    - image: ahmadajajeh/tickets
+    - image: ahmadaj/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -23,7 +23,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: ahmadajajeh/orders
+    - image: ahmadaj/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -31,7 +31,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: ahmadajajeh/expiration
+    - image: ahmadaj/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -39,7 +39,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: ahmadajajeh/payments
+    - image: ahmadaj/payments
       context: payments
       docker:
         dockerfile: Dockerfile
@@ -47,7 +47,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: ahmadajajeh/client
+    - image: ahmadaj/client
       context: client
       docker:
         dockerfile: Dockerfile

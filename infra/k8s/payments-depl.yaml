@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: ahmadajajeh/payments
+          image: ahmadaj/payments
           env:
             - name: MONGO_URI
               value: mongodb://payments-mongo-srv:27017/payments

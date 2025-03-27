@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: ahmadajajeh/orders
+          image: ahmadaj/orders
           env:
             - name: MONGO_URI
               value: mongodb://orders-mongo-srv:27017/orders
