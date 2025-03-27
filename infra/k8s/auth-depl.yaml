@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+spec:
+  replicas: 1
+  selector: # how to find the pods which the depl is responsible for
+    matchLabels:
+      app: auth
+  template: # what does the pods hold
+    metadata:
+      labels:
+        app: auth
+    spec: # tell the pod how to behave
+      containers:
+        - name: auth # for logging services
+          image: ahmadajajeh/auth
+          env:
+            - name: JWT_KEY # the name of the env variable
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret # the name of the secret object source
+                  key: JWT_KEY # the name of the key inside the secret ( a secret can hold many keys)
+            - name: MONGO_URI
+              value: mongodb://auth-mongo-srv:27017/auth
+---
+apiVersion: v1
+kind: Service # the default service is the clusterip service
+# clusterip service allow communication to the service from anything else running inside our cluster
+metadata:
+  name: auth-srv
+spec: # how the serivce behave
+  selector:
+    app: auth
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
